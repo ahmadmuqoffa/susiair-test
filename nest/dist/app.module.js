@@ -15,12 +15,13 @@ const data_module_1 = require("./data/data.module");
 const pilot_module_1 = require("./pilot/pilot.module");
 const documents_module_1 = require("./documents/documents.module");
 const schedules_module_1 = require("./schedules/schedules.module");
+const flight_hours_module_1 = require("./flight-hours/flight-hours.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, data_module_1.DataModule, pilot_module_1.PilotModule, documents_module_1.DocumentsModule, schedules_module_1.SchedulesModule],
+        imports: [auth_module_1.AuthModule, data_module_1.DataModule, pilot_module_1.PilotModule, documents_module_1.DocumentsModule, schedules_module_1.SchedulesModule, flight_hours_module_1.FlightHoursModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
