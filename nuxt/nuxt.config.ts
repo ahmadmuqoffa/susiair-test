@@ -13,11 +13,11 @@ export default defineNuxtConfig({
   devServer: { port: 3001 },
 
   runtimeConfig: {
-    public: {
-      // Bisa diganti lewat environment variable NUXT_PUBLIC_API_BASE.
-      apiBase: 'http://localhost:3000',
-    },
+  public: {
+    apiBase: 'http://localhost:3000',
+    appToday: '2026-05-15',
   },
+},
 
   app: {
     head: {

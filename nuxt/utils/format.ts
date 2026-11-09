@@ -21,3 +21,8 @@ export function formatDayMonth(iso: string): string {
   const [, m, d] = iso.split('-').map(Number)
   return `${d} ${MONTH_SHORT[m - 1]}`
 }
+
+export const MONTH_LONG = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+]
