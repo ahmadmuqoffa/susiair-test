@@ -1,0 +1,46 @@
+export type RangeKey = '1w' | '1m' | '3m' | '6m' | '1y'
+
+export interface Pilot {
+  name: string
+  totalFlightHours: number
+  avatarUrl: string
+}
+
+export interface LimitCard {
+  key: 'daily' | 'weekly' | 'monthly' | 'annual'
+  label: string
+  windowDays: number
+  current: number
+  limit: number
+  percentage: number
+  status: 'safe' | 'warning' | 'exceeded'
+}
+
+export interface SeriesPoint {
+  date: string
+  hours: number
+  rollingSum: number
+  isToday: boolean
+  isFuture: boolean
+  overLimit: boolean
+}
+
+export interface HoursSummary {
+  range: RangeKey
+  today: string
+  windowDays: number
+  limit: number
+  yMax: number
+  series: SeriesPoint[]
+  cards: LimitCard[]
+}
+
+export type DocumentStatus = 'safe' | 'soon' | 'expired'
+
+export interface PilotDocument {
+  id: string
+  label: string
+  expiryDate: string
+  daysRemaining: number
+  status: DocumentStatus
+}

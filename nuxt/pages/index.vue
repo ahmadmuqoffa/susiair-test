@@ -1,28 +1,30 @@
 <script setup lang="ts">
-interface Pilot {
-  name: string
-  totalFlightHours: number
-  avatarUrl: string
-}
+const pilot = usePilotStore()
+const hours = useHoursStore()
+const documents = useDocumentsStore()
 
-const api = useApi()
-const auth = useAuthStore()
-
-const { data: pilot, error } = await useAsyncData('pilot', () =>
-  api<Pilot>('/pilot/me'),
-)
-
-async function logout() {
-  auth.logout()
-  await navigateTo('/login')
-}
+onMounted(() => {
+  pilot.load()
+  hours.load()
+  documents.load()
+})
 </script>
 
 <template>
-  <main style="padding: 24px">
-    <h1>Home (placeholder)</h1>
-    <p v-if="error">Failed to load pilot profile.</p>
-    <p v-else-if="pilot">{{ pilot.name }} · {{ pilot.totalFlightHours }} hrs</p>
-    <button @click="logout">Sign out</button>
-  </main>
+  <div>
+    <PilotHeader />
+    <div class="home">
+      <HoursToLimit />
+      <DocumentList />
+    </div>
+  </div>
 </template>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px 16px 8px;
+}
+</style>

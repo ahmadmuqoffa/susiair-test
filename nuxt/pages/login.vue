@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Eye, EyeOff, CircleAlert } from 'lucide-vue-next'
+definePageMeta({ layout: false })
 
 const auth = useAuthStore()
 
